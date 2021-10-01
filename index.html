@@ -5,171 +5,60 @@
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+    <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/875b8c7180.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    
-<div class="sidebar-header">
-<div class="toggle-triangle carat up-carat"></div>
-<h3 class="title topless bottomless">Global Heatmap</h3>
-</div>
-<div class="content" id="js-sidebar-content" style="display: block;">
-<div class="section">
-<h5 class="topless">Heatmap Color</h5>
-<div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
-<label class="map-color btn btn-default active" data-color="hot">
-<input id="color-hot" name="map_color" type="radio" value="hot">
-Hot
-
-</label>
-<label class="map-color btn btn-default" data-color="blue">
-<input id="color-blue" name="map_color" type="radio" value="blue">
-Blue
-
-</label>
-<label class="map-color btn btn-default" data-color="purple">
-<input id="color-purple" name="map_color" type="radio" value="purple">
-<span class="translation_missing" title="translation missing: en-US.views.global_heatmap.color_options.purple">Purple</span>
-
-</label>
-<label class="map-color btn btn-default" data-color="gray">
-<input id="color-gray" name="map_color" type="radio" value="gray">
-Gray
-
-</label>
-<label class="map-color btn btn-default" data-color="bluered">
-<input id="color-bluered" name="map_color" type="radio" value="bluered">
-Red
-
-</label>
-</div>
-<h5>Activity Type</h5>
-<div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
-<label class="map-type btn btn-default active" data-type="all">
-<input id="type-all" name="map_type" type="radio" value="all">
-All
-
-</label>
-<label class="map-type btn btn-default" data-type="ride">
-<input id="type-ride" name="map_type" type="radio" value="ride">
-<span class="app-icon-wrapper  "><span title="Rides" class="app-icon icon-ride icon-dark">Rides</span></span>
-</label>
-<label class="map-type btn btn-default" data-type="run">
-<input id="type-run" name="map_type" type="radio" value="run">
-<span class="app-icon-wrapper  "><span title="Runs" class="app-icon icon-run icon-dark">Runs</span></span>
-</label>
-<label class="map-type btn btn-default" data-type="water">
-<input id="type-water" name="map_type" type="radio" value="water">
-<span class="app-icon-wrapper  "><span title="Water" class="app-icon icon-swimming icon-dark">Water</span></span>
-</label>
-<label class="map-type btn btn-default" data-type="winter">
-<input id="type-winter" name="map_type" type="radio" value="winter">
-<span class="app-icon-wrapper  "><span title="Winter activities" class="app-icon icon-snow icon-dark">Winter activities</span></span>
-</label>
-</div>
-<h5>Heat Opacity</h5>
-<div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
-<label class="map-opacity btn btn-default" data-opacity="0">
-<input id="opacity-0" name="map_opacity" type="radio" value="0">
-0%
-
-</label>
-<label class="map-opacity btn btn-default" data-opacity="40">
-<input id="opacity-40" name="map_opacity" type="radio" value="40">
-40%
-
-</label>
-<label class="map-opacity btn btn-default" data-opacity="60">
-<input id="opacity-60" name="map_opacity" type="radio" value="60">
-60%
-
-</label>
-<label class="map-opacity btn btn-default active" data-opacity="80">
-<input id="opacity-80" name="map_opacity" type="radio" value="80">
-80%
-
-</label>
-<label class="map-opacity btn btn-default" data-opacity="100">
-<input id="opacity-100" name="map_opacity" type="radio" value="100">
-100%
-
-</label>
-</div>
-<h5>Layers</h5>
-<div class="btn-group btn-group-justified" role="group">
-<div class="btn-group btn-group-sm">
-<button class="btn btn-default active" id="view-maps" type="button">
-Map
-</button>
-</div>
-<div class="btn-group btn-group-sm">
-<button class="btn btn-default" id="view-labels" type="button">
-Labels
-</button>
-</div>
-</div>
-<h5>Map Styles</h5>
-<div class="btn-group btn-group-grid" data-toggle="buttons">
-<label class="btn btn-xs btn-default active">
-<input name="map_style" type="radio" value="dark">
-Dark
-
-</label>
-<label class="btn btn-xs btn-default">
-<input name="map_style" type="radio" value="light">
-Light
-
-</label>
-<label class="btn btn-xs btn-default">
-<input name="map_style" type="radio" value="standard">
-Standard
-
-</label>
-<label class="btn btn-xs btn-default">
-<input name="map_style" type="radio" value="satellite">
-Satellite
-
-</label>
-<label class="btn btn-xs btn-default">
-<input name="map_style" type="radio" value="hybrid">
-Hybrid
-
-</label>
-<label class="btn btn-xs btn-default">
-<input name="map_style" type="radio" value="winter">
-Winter
-
-</label>
-</div>
-<div class="show-terrain mt-md">
-<label for="show-3d-terrain">
-Show 3D Terrain
-<input id="show-3d-terrain" name="3d_terrain" type="checkbox">
-</label>
-</div>
-</div>
-<div class="info">
-<div class="section">
-<a href="https://medium.com/strava-engineering/the-global-heatmap-now-6x-hotter-23fc01d301de">Discover</a> how the heatmap was built.
-<br>
-<a href="https://metro.strava.com">Learn</a> how Strava Metro can help your community.
-</div>
-</div>
-<div class="labs-disclaimer-spacer hidden-xs"></div>
-<div class="section labs-disclaimer">
-<button class="btn btn-link" data-target="#learn-more-modal" data-toggle="modal">
-Learn about heatmap updates.
-</button>
-</div>
-</div>
-
-    <div class="menu area">
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+    <div id="map">
+      <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc2NjaHJpc3RlbnNlbiIsImEiOiJja3RqMHd6bHAxN2J0Mnd1ZTBhMnFqeDBvIn0.myfePg-ekbueQ6nAKyVRog';
+        const map = new mapboxgl.Map({
+          container: 'map', // container ID
+          style: 'mapbox://styles/larscchristensen/cktj10n763sgi18rvyyh2e5rm/draft', // style URL
+          center: [-98.4842, 39.0119], // starting position [lng, lat]
+          zoom: 4 // starting zoom
+        });
+      </script>
     </div>
+    <div id="menu">
+      <div id="settings-area">
+        <button type="button" class="button"><i class="fas fa-cog"></i></button>
+      </div>
+      <div id="menu-about">
+        <button type = "button" class="button">About</button>
+      </div>
+      <div id="menu-more-info">
+        <button type = "button" class="button">More 
+          Information</button>
+      </div>
+    </div>
+    
+    <div id="about-page-body">
+      <div id="about-page-header">
+        <h1>About</h1>
+        <button type="button" class="x">X</button>
+      </div>
+      <p>larsington 3</p>
+    </div>
+    
+
+    <div id="info-page-body">
+      <div id="info-page-header">
+        <h1>More Information</h1>
+        <button type="button" class="x">X</button>
+      </div>
+        <p>our info is about lars, aye lars you are awesome and i love you</p>
+    </div>
+    
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,147 @@
+body{
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  
+}
+h1{
+  position: fixed;
+  top: -1%;
+}
+#map {
+  z-index: 1;
+}
+#settings-area{
+  z-index: 2;
+  position: fixed;
+  top: 1%;
+  left: 1%;
+}
+#menu{
+  z-index: 2;
+  position: fixed;
+  right: 1%; 
+  top: 1%;
+}
+
+#menu-more-info{
+  position: relative;
+  float: left;
+}
+
+#menu-about{
+  float: left;
+  position: relative;
+}
+
+#about-page-body{
+  height: 90%;
+  width: 400px;
+  position: fixed; 
+  z-index: 3; 
+  top: 10%; 
+  background-color:#1b2333;
+  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: hidden; 
+  padding-top: 20px;
+  visibility: hidden;
+  transition: right 2s;
+}
+
+#about-page-body
+
+#about-page-header{
+  height: 10%;
+  width: 400px;
+  position: fixed; 
+  z-index: 3; 
+  top: 0; 
+  right: 0;
+  background-color:#1b2333; 
+  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: hidden; 
+  padding-top: 20px;
+  visibility: hidden;
+}
+
+#info-page-header{
+  height: 10%;
+  width: 400px;
+  position: fixed; 
+  z-index: 3; 
+  top: 0; 
+  right: 0;
+  background-color:#1b2333; 
+  overflow-x: hidden; 
+  padding-top: 20px;
+  visibility: hidden;
+}
+
+#info-page-body{
+  height: 90%;
+  width: 400px;
+  position: fixed; 
+  z-index: 3; 
+  top: 10%; 
+  right: 0;
+  background-color:#1b2333;
+  overflow-x: hidden; 
+  padding-top: 20px;
+  visibility: hidden;
+}
+
+.button {
+	color: #ffffff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #1b2333;
+	padding: 10px;
+	border: 1px solid #888888 !important;
+  border-radius: 5px;
+	display: inline-block;
+	transition: all 0.4s ease 0s;
+}
+
+.button:hover {
+	color: #ffffff !important;
+	background: #1b2333;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+.x{
+  color: #ffffff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #1b2333;
+	padding: 10px;
+	border: 1px solid #888888 !important;
+  border-radius: 5px;
+	display: inline-block;
+  position: relative;
+  left: 90%
+}
+
+.x:hover{
+  color: #ffffff !important;
+	background: #1b2333;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  #settings-area{
+    top: 2%;
+    left: 5%;
+  }
+  #menu{
+    top: 2%;
+  }
+  #about-page-body{
+    width: 100%;
+  }
+  #about-page-header{
+    width: 100%
+  }
+}
