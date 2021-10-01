@@ -1,15 +1,19 @@
+/* basic html elements */
 body{
   font-family: 'Inter', sans-serif;
   color: #ffffff;
-  
 }
 h1{
   position: fixed;
   top: -1%;
 }
+
+/* sets map to back */
 #map {
   z-index: 1;
 }
+
+/* positions for our buttons */
 #settings-area{
   z-index: 2;
   position: fixed;
@@ -22,73 +26,15 @@ h1{
   right: 1%; 
   top: 1%;
 }
-
 #menu-more-info{
   position: relative;
   float: left;
 }
-
 #menu-about{
   float: left;
   position: relative;
 }
-
-#about-page-body{
-  height: 90%;
-  width: 400px;
-  position: fixed; 
-  z-index: 3; 
-  top: 10%; 
-  background-color:#1b2333;
-  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
-  overflow-x: hidden; 
-  padding-top: 20px;
-  visibility: hidden;
-  transition: right 2s;
-}
-
-#about-page-body
-
-#about-page-header{
-  height: 10%;
-  width: 400px;
-  position: fixed; 
-  z-index: 3; 
-  top: 0; 
-  right: 0;
-  background-color:#1b2333; 
-  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
-  overflow-x: hidden; 
-  padding-top: 20px;
-  visibility: hidden;
-}
-
-#info-page-header{
-  height: 10%;
-  width: 400px;
-  position: fixed; 
-  z-index: 3; 
-  top: 0; 
-  right: 0;
-  background-color:#1b2333; 
-  overflow-x: hidden; 
-  padding-top: 20px;
-  visibility: hidden;
-}
-
-#info-page-body{
-  height: 90%;
-  width: 400px;
-  position: fixed; 
-  z-index: 3; 
-  top: 10%; 
-  right: 0;
-  background-color:#1b2333;
-  overflow-x: hidden; 
-  padding-top: 20px;
-  visibility: hidden;
-}
-
+/* styles for our button classes */
 .button {
 	color: #ffffff !important;
 	text-transform: uppercase;
@@ -100,7 +46,6 @@ h1{
 	display: inline-block;
 	transition: all 0.4s ease 0s;
 }
-
 .button:hover {
 	color: #ffffff !important;
 	background: #1b2333;
@@ -108,7 +53,6 @@ h1{
 	transition: all 0.4s ease 0s;
   cursor: pointer;
 }
-
 .x{
   color: #ffffff !important;
 	text-transform: uppercase;
@@ -121,27 +65,95 @@ h1{
   position: relative;
   left: 90%
 }
-
 .x:hover{
   color: #ffffff !important;
 	background: #1b2333;
 	border-color: #f6b93b !important;
-	transition: all 0.4s ease 0s;
+	transition: all 0.0s ease 0s;
   cursor: pointer;
 }
 
+/* styles for the about section */
+#about{
+  visibility: hidden;
+}
+#about-page-body{
+  height: calc(100% - 60px);
+  width: 380px;
+  position: fixed; 
+  z-index: 3; 
+  top: 60px;
+  right: 0;
+  background-color:#1b2333;
+  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: hidden; 
+  padding: 5px 10px 0 10px;
+}
+#about-page-header{
+  height: 40px;
+  width: 380px;
+  position: fixed; 
+  z-index: 3; 
+  top: 0; 
+  right: 0;
+  background-color:#1b2333; 
+  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: hidden; 
+  padding: 10px 10px 10px 10px;
+}
+
+/* styles for the more information section */
+#info{
+  visibility: hidden;
+}
+#info-page-body{
+  height: calc(100% - 60px);
+  width: 380px;
+  position: fixed; 
+  z-index: 3; 
+  top: 60px;
+  right: 0;
+  background-color:#1b2333;
+  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: hidden; 
+  padding: 5px 10px 0 10px;
+}
+#info-page-header{
+  height: 40px;
+  width: 380px;
+  position: fixed; 
+  z-index: 3; 
+  top: 0; 
+  right: 0;
+  background-color:#1b2333; 
+  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: hidden; 
+  padding: 10px 10px 10px 10px;
+}
+
+/* styles for the users on a smaller sized screen (mobile) */
 @media (max-width: 600px) {
   #settings-area{
     top: 2%;
-    left: 5%;
+    left: 3%;
   }
   #menu{
     top: 2%;
   }
   #about-page-body{
-    width: 100%;
+    width: 95%;
+    padding: 20px 10px 0 40px;
   }
   #about-page-header{
-    width: 100%
+    width: 95%;
+    padding: 20px 10px 0 40px;
+  }
+  #info-page-body{
+    width: 95%;
+    padding: 20px 10px 0 40px;
+  }
+  #info-page-header{
+    width: 95%;
+    padding: 20px 10px 0 40px;
   }
 }

@@ -7,28 +7,43 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+
+    <!-- outside scripts imported here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/875b8c7180.js" crossorigin="anonymous"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+
     <style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+      body { margin: 0; padding: 0; }
+      #map { position: absolute; top: 0; bottom: 0; width: 100%; }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/875b8c7180.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- creates the map pulled from mapbox -->
     <div id="map">
       <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc2NjaHJpc3RlbnNlbiIsImEiOiJja3RqMHd6bHAxN2J0Mnd1ZTBhMnFqeDBvIn0.myfePg-ekbueQ6nAKyVRog';
+        //this var sets the zoom multiplier on the map to make it fit different sized monitors 
+        var zoomMultiplier = 2 + ($(document).width()/850);
+        if ($(document).width()<=600){
+          zoomMultiplier =  1 + ($(document).width()/400);
+        } else if ($(document).width()>=2000) {
+          zoomMultiplier =  2.6 + ($(document).width()/1200);
+        }
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc2NjaHJpc3RlbnNlbiIsImEiOiJja3RqMHd6bHAxN2J0Mnd1ZTBhMnFqeDBvIn0.myfePg-ekbueQ6nAKyVRog'; //access token for map
         const map = new mapboxgl.Map({
           container: 'map', // container ID
           style: 'mapbox://styles/larscchristensen/cktj10n763sgi18rvyyh2e5rm/draft', // style URL
-          center: [-98.4842, 39.0119], // starting position [lng, lat]
-          zoom: 4 // starting zoom
+          center: [-95.75, 38.5119], // starting position [lng, lat]
+          zoom: zoomMultiplier // starting zoom
         });
       </script>
     </div>
+
+    <!-- all the menu buttons -->
     <div id="menu">
       <div id="settings-area">
         <button type="button" class="button"><i class="fas fa-cog"></i></button>
@@ -42,21 +57,26 @@
       </div>
     </div>
     
-    <div id="about-page-body">
-      <div id="about-page-header">
-        <h1>About</h1>
-        <button type="button" class="x">X</button>
+    <!-- all the about page objects-->
+    <div id="about">
+      <div id="about-page-body">
+        <div id="about-page-header">
+          <h1>About</h1>
+          <button type="button" class="x">X</button>
+        </div>
+        <p>larsington 3</p>
       </div>
-      <p>larsington 3</p>
     </div>
-    
 
-    <div id="info-page-body">
-      <div id="info-page-header">
-        <h1>More Information</h1>
-        <button type="button" class="x">X</button>
+    <!-- all the info page objects-->
+    <div id="info">
+      <div id="info-page-body">
+        <div id="info-page-header">
+          <h1>More Information</h1>
+          <button type="button" class="x">X</button>
+        </div>
+          <p>our info is about lars, aye lars you are awesome and i love you</p>
       </div>
-        <p>our info is about lars, aye lars you are awesome and i love you</p>
     </div>
     
     <script src="script.js"></script>
