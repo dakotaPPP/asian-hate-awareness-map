@@ -73,6 +73,7 @@ h1{
   cursor: pointer;
 }
 
+
 /* styles for the about section */
 #about{
   visibility: hidden;
@@ -131,6 +132,43 @@ h1{
   padding: 10px 10px 10px 10px;
 }
 
+/* styles for the settings section */
+#settings{
+  visibility: hidden;
+}
+#settings-body{
+  position: fixed; 
+  z-index: 1; 
+  top: 1%;
+  left: 1%;
+  background-color:#1b2333;
+  box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: hidden; 
+  padding: 5px 10px 0 10px;
+  border: 1px solid #888888 !important;
+  border-radius: 5px;
+}
+.settingsArea{
+  height: 30px;
+  width: 13px;
+}
+.settings-close{
+  transition: all 1s ease;
+}
+.settings-open{
+  height:400px;
+  width: 200px;
+}
+.borderOn{
+  border: 1px solid #888888 !important;
+  top: 1%;
+  left: 1%;
+}
+.borderOff{
+  border: 0 hidden #888888 !important;
+  top: 50%;
+  left: calc(1% + 5px);
+}
 /* styles for the users on a smaller sized screen (mobile) */
 @media (max-width: 600px) {
   #settings-area{
@@ -155,5 +193,9 @@ h1{
   #info-page-header{
     width: 95%;
     padding: 20px 10px 0 40px;
+  }
+  #settings-body{
+    top: 2%;
+    left: 3%;
   }
 }
