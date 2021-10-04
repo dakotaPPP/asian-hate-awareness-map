@@ -11,37 +11,21 @@
     <!-- outside scripts imported here -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/875b8c7180.js" crossorigin="anonymous"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <script src="https://unpkg.com/papaparse@5.3.1/papaparse.min.js"></script>
 
     <style>
       body { margin: 0; padding: 0; }
       #map { position: absolute; top: 0; bottom: 0; width: 100%; }
     </style>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- creates the map pulled from mapbox -->
-    <div id="map">
-      <script>
-        //this var sets the zoom multiplier on the map to make it fit different sized monitors 
-        var zoomMultiplier = 2 + ($(document).width()/850);
-        if ($(document).width()<=600){
-          zoomMultiplier =  1 + ($(document).width()/400);
-        } else if ($(document).width()>=2000) {
-          zoomMultiplier =  2.6 + ($(document).width()/1200);
-        }
-
-        mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc2NjaHJpc3RlbnNlbiIsImEiOiJja3RqMHd6bHAxN2J0Mnd1ZTBhMnFqeDBvIn0.myfePg-ekbueQ6nAKyVRog'; //access token for map
-        const map = new mapboxgl.Map({
-          container: 'map', // container ID
-          style: 'mapbox://styles/larscchristensen/cktj10n763sgi18rvyyh2e5rm/draft', // style URL
-          center: [-95.75, 38.5119], // starting position [lng, lat]
-          zoom: zoomMultiplier // starting zoom
-        });
-      </script>
-    </div>
+    <div id="map"></div>
 
     <!-- all the menu buttons -->
     <div id="menu">
@@ -64,7 +48,8 @@
           <h1>About</h1>
           <button type="button" class="x">X</button>
         </div>
-        <p>larsington 3</p>
+        <p>In the wake of the COVID-19 pandemic, there has been an increase in the number of Asian hate crime incidents. In light of these events, there has been a large movement to put a stop to Asian hate, and to contribute to this cause, we wanted to make a website to raise awareness about the scale of the issue. Furthermore, project contributor Bruce Chen is a Chinese American himself, so this is an issue that is close to home for us. Because of this, we have created this website to show incidents as they occur, using a heat map that displays the locations of “Anti-Asian incidents” that are mentioned in articles. We hope that this information is helpful and showcases where Asian hate crimes are most common so that we may put a stop to this pressing issue.
+</p>
       </div>
     </div>
 

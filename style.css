@@ -6,11 +6,29 @@ body{
 h1{
   position: fixed;
   top: -1%;
+  text-emphasis: none;
+  font-weight: normal;
 }
 
-/* sets map to back */
+/* map elements */
 #map {
   z-index: 1;
+}
+.marker {
+  background-image: url('images/mapIcon.png');
+  background-size: cover;
+  width: 20px;
+  height: 40px;
+  cursor: pointer;
+}
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  color: #1b2333;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
 }
 
 /* positions for our buttons */
@@ -33,9 +51,11 @@ h1{
 #menu-about{
   float: left;
   position: relative;
+  padding-right: 5px;
 }
 /* styles for our button classes */
 .button {
+  font-family: 'Inter', sans-serif;
 	color: #ffffff !important;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -153,7 +173,7 @@ h1{
   width: 13px;
 }
 .settings-close{
-  transition: all 1s ease;
+  transition: all .5s ease;
 }
 .settings-open{
   height:400px;
@@ -166,8 +186,6 @@ h1{
 }
 .borderOff{
   border: 0 hidden #888888 !important;
-  top: 50%;
-  left: calc(1% + 5px);
 }
 /* styles for the users on a smaller sized screen (mobile) */
 @media (max-width: 600px) {
