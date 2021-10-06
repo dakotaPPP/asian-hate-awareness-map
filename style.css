@@ -9,7 +9,10 @@ h1{
   text-emphasis: none;
   font-weight: normal;
 }
-
+a{
+  color: #f6b93b;
+  font-weight: normal;
+}
 /* map elements */
 #map {
   z-index: 1;
@@ -21,16 +24,27 @@ h1{
   height: 40px;
   cursor: pointer;
 }
+.marker-shown{
+  visibility: visible;
+}
+.marker-hidden{
+  visibility: hidden;
+}
 .mapboxgl-popup {
   max-width: 200px;
+  background-color: #1b2333;
 }
 
 .mapboxgl-popup-content {
-  color: #1b2333;
+  color: #ffffff;
   text-align: center;
   font-family: 'Inter', sans-serif;
 }
 
+div > .mapboxgl-popup-content {
+  background-color: #1b2333;
+  border: solid 1px #888888;
+}
 /* positions for our buttons */
 #settings-area{
   z-index: 2;
@@ -66,6 +80,10 @@ h1{
 	display: inline-block;
 	transition: all 0.4s ease 0s;
 }
+.setting-button{
+  border: 0px solid #888888 !important;
+  transform: translate(1px,1px);
+}
 .button:hover {
 	color: #ffffff !important;
 	background: #1b2333;
@@ -93,7 +111,64 @@ h1{
   cursor: pointer;
 }
 
+/*styles for switches*/
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  height: 16px;
+  width: 30px;
+  left: 130px;
+  bottom: 2px;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  z-index: 11;
+}
+.slider:before {
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  z-index: 11;
+}
+input:checked + .slider {
+  background-color: #f6b93b;
+  z-index: 11;
+}
 
+input:focus + .slider {
+  box-shadow: 0 0 1px #f6b93b;
+  z-index: 11;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+  z-index: 11;
+}
+
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 /* styles for the about section */
 #about{
   visibility: hidden;
@@ -154,7 +229,7 @@ h1{
 
 /* styles for the settings section */
 #settings{
-  visibility: hidden;
+  visibility: visible;
 }
 #settings-body{
   position: fixed; 
@@ -163,14 +238,21 @@ h1{
   left: 1%;
   background-color:#1b2333;
   box-shadow: -3px 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
-  overflow-x: hidden; 
+  overflow: hidden; 
   padding: 5px 10px 0 10px;
   border: 1px solid #888888 !important;
   border-radius: 5px;
 }
 .settingsArea{
-  height: 30px;
-  width: 13px;
+  height: 31px;
+  width: 14px;
+}
+.settingsArea:hover{
+  color: #ffffff !important;
+	background: #1b2333;
+	border-color: #f6b93b !important;
+	transition: all 0.0s ease 0s;
+  cursor: pointer;
 }
 .settings-close{
   transition: all .5s ease;
@@ -179,13 +261,16 @@ h1{
   height:400px;
   width: 200px;
 }
-.borderOn{
-  border: 1px solid #888888 !important;
-  top: 1%;
-  left: 1%;
+#setting1{
+  position: relative;
+  top: 30px;
+  display: inline-block;
+  vertical-align: middle;
 }
-.borderOff{
-  border: 0 hidden #888888 !important;
+.setting1-text{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px;
 }
 /* styles for the users on a smaller sized screen (mobile) */
 @media (max-width: 600px) {

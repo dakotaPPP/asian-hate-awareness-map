@@ -1,3 +1,4 @@
+<!--https://replit.com/join/pedqkacjih-dakotapound-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,12 +26,29 @@
   </head>
   <body>
     <!-- creates the map pulled from mapbox -->
-    <div id="map"></div>
+    <div id="map">
+      <script>
+        //this var sets the zoom multiplier on the map to make it fit different sized monitors 
+        var zoomMultiplier = 2 + ($(document).width()/850);
+        if ($(document).width()<=600){
+          zoomMultiplier =  1 + ($(document).width()/400);
+        } else if ($(document).width()>=2000) {
+          zoomMultiplier =  2.6 + ($(document).width()/1200);
+        }
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc2NjaHJpc3RlbnNlbiIsImEiOiJja3RqMHd6bHAxN2J0Mnd1ZTBhMnFqeDBvIn0.myfePg-ekbueQ6nAKyVRog'; //access token for map
+        const map = new mapboxgl.Map({
+          container: 'map', // container ID
+          style: 'mapbox://styles/larscchristensen/ckud120ny3p7117pvruvsnuk5', // style URL
+          center: [-95.75, 38.5119], // starting position [lng, lat]
+          zoom: zoomMultiplier // starting zoom
+        });
+      </script>
+    </div>
 
     <!-- all the menu buttons -->
     <div id="menu">
       <div id="settings-area">
-        <button type="button" class="button borderOn"><i class="fas fa-cog"></i></button>
+        <button type="button" class="button setting-button"><i class="fas fa-cog"></i></button>
       </div>
       <div id="menu-about">
         <button type = "button" class="button">About</button>
@@ -48,7 +66,8 @@
           <h1>About</h1>
           <button type="button" class="x">X</button>
         </div>
-        <p>In the wake of the COVID-19 pandemic, there has been an increase in the number of Asian hate crime incidents. In light of these events, there has been a large movement to put a stop to Asian hate, and to contribute to this cause, we wanted to make a website to raise awareness about the scale of the issue. Furthermore, project contributor Bruce Chen is a Chinese American himself, so this is an issue that is close to home for us. Because of this, we have created this website to show incidents as they occur, using a heat map that displays the locations of “Anti-Asian incidents” that are mentioned in articles. We hope that this information is helpful and showcases where Asian hate crimes are most common so that we may put a stop to this pressing issue.
+        <p>In the wake of the COVID-19 pandemic, there has been an increase in the number of Asian hate crime incidents. In light of these events, there has been a large movement to put a stop to Asian hate, and to contribute to this cause, we wanted to make a website to raise awareness about the scale of the issue.</p>
+        <p>Furthermore, project contributor Bruce Chen is a Chinese American himself, so this is an issue that is close to home for us. Because of this, we have created this website to show incidents as they occur, using a heat map that displays the locations of “Anti-Asian incidents” that are mentioned in articles. We hope that this information is helpful and showcases where Asian hate crimes are most common so that we may put a stop to this pressing issue.
 </p>
       </div>
     </div>
@@ -60,12 +79,23 @@
           <h1>More Information</h1>
           <button type="button" class="x">X</button>
         </div>
-          <p>our info is about lars, aye lars you are awesome and i love you</p>
+          <p>If you would like more information about the topic and what you can do to help, please visit some of the following links:</p>
+          <p><a href="https://stopaapihate.org/">StopAAPIhate.org</a></p>
+          <p><a href="https://www.npr.org/2021/08/12/1027236499/anti-asian-hate-crimes-assaults-pandemic-incidents-aapi">General Information from NPR</a></p>
+          <p><a href="https://www.pbs.org/newshour/nation/what-you-can-do-to-fight-violence-and-racism-against-asian-americans">What can be done to help from PBS</a></p>
+
       </div>
     </div>
 
     <div id="settings">
       <div id="settings-body" class="settingsArea settings-close">
+          <div id="setting1">
+            <p class="setting1-text show">Heatmap Mode</p> 
+            <label class="switch">
+                <input type="checkbox" class="setting1-checkbox">
+                <span class="slider round"></span>
+            </label>
+          </div>
       </div>
     </div>
     
