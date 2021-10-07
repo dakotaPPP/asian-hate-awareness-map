@@ -56,7 +56,7 @@ function getRandomInt(max) {
 }
 
 /* pulls information from data.csv and creates a marker and popup icon at the coordinates and information for the article */
-fetch('testdata.csv')
+fetch('data.csv')
   .then(response => response.text())
     .then(data => {
       csvArr = Papa.parse(data);
