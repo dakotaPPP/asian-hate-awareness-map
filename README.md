@@ -8,7 +8,9 @@ One of our project contributors, Bruce Chen, is a Chinese American, making this 
 
 ## Features
 
-- **Incident Heatmap:** The website includes an interactive heatmap that dynamically showcases the prevalence of Anti-Asian incidents based on reported locations.
+- **Mapbox API Integration:** Utilizes the Mapbox API to provide an interactive map experience.
+- **Interactive Pins:** Allows users to interact with pins on the map, providing details about reported incidents.
+- **Heatmap Functionality:** Displays a heatmap of "Anti-Asian incidents" based on reported locations, offering insights into the prevalence of Asian hate crimes.
 
 ## View Online
 
