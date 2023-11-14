@@ -46,7 +46,7 @@ We welcome contributions from the community to enhance and improve this project.
    git clone https://github.com/your-username/stop-asian-hate-incidents.git
    ```
 
-3. **Create a Branch: **
+3. **Create a Branch:**
 
    ```bash
    git checkout -b feature/your-feature-name
