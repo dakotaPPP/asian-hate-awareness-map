@@ -86,6 +86,4 @@ We would like to express our gratitude to everyone who contributes to raising aw
 
 ---
 
-*Note: Replace "your-username" with the actual username of your GitHub repository.*
-
 **Together, let's stand against Asian hate and work towards a more inclusive and compassionate world.**
